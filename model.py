@@ -15,5 +15,5 @@ class roberta_mnli_typing(nn.Module):
 
     def forward(self, input_ids, attention_mask):
         roberta_output = self.roberta_module(input_ids, attention_mask)
-        res = nn.functional.softmax(roberta_output.logits, dim=-1)
+        res = nn.functional.softmax(roberta_output[0], dim=-1)
         return res
